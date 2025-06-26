@@ -1,0 +1,18 @@
+package rules
+
+import com.example.drools.Person
+
+rule "גיל מבוגר"
+    when
+        $person : Person(age > 18)
+    then
+        System.out.println($person.getName() + " הוא מבוגר");
+        $person.setAdult(true);
+end
+
+rule "גיל צעיר"
+    when
+        $person : Person(age <= 18)
+    then
+        System.out.println($person.getName() + " הוא לא מבוגר");
+end
